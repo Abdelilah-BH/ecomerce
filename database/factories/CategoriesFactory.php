@@ -18,9 +18,9 @@ class CategoriesFactory extends Factory
     {
         return [
             'name'=> $this->faker->name(),
-            'description'=> $this->faker->paragraph(),
-            'order'=>$this->faker->unique()->biasedNumberBetween($min = 1, $max = 10),
-            'status'=>$this->faker->boolean()
+            'description'=> $this->faker->text(),
+            'order'=>$this->faker->unique()->numberBetween(1, 100),
+            'status'=>$this->faker->boolean(),
         ];
     }
 }
