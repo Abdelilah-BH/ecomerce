@@ -17,7 +17,7 @@ class ProductsFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->title(),
+            'name' => $this->faker->name(),
             'description'=> $this->faker->text(),
             'price'=> $this->faker->randomNumber(2),
             'rating' => $this->faker->numberBetween(0, 10),
@@ -27,7 +27,7 @@ class ProductsFactory extends Factory
             'hidden'=> $this->faker->boolean(),
             'availability'=> $this->faker->boolean(),
             'state' => $this->faker->randomElement(["Neuf", "Occasion"]),
-            'image' => $this->faker->image(),
+            'image' => $this->faker->imageUrl(),
         ];
     }
 }

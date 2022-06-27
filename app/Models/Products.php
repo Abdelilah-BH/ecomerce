@@ -16,7 +16,6 @@ class Products extends Model
         'brand',
         'hidden',
         'availability',
-        'status',
         'image',
     ];
 }

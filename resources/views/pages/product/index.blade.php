@@ -1,16 +1,8 @@
-{{-- @extends('layout.master')
-
-@section('content')
-@foreach ($products as $product)
-<h1>{{$product->price}}</h1>
-@endforeach
-@endsection --}}
-
 @extends('layout.master')
 
 @section('content')
 <div class="card mb-3" id="productsTable"
-    data-list='{"valueNames":["name","description","price","rating", "discount", "stock", "state"],"page":20,"pagination":true}'>
+    data-list='{"valueNames":["name","image","price","rating", "discount", "stock", "state"],"page":20,"pagination":true}'>
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
@@ -54,11 +46,14 @@
                             </div>
                         </th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Produit</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="description">Description
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="image">Image</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="price">price</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="brand">Brand</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="stock">Stock</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="state">State</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="discount">Solde
                         </th>
-                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order"
-                            style="min-width: 12.5rem;">price</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">brand</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
                         <th class="no-sort"></th>
                     </tr>
                 </thead>
@@ -71,14 +66,34 @@
                                     data-bulk-select-row="data-bulk-select-row" />
                             </div>
                         </td>
-                        <td class="order py-2 align-middle white-space-nowrap"><a href="#">
-                                <strong>#{{$product->id}}</strong></a> by
+                        <td class="name py-2 align-middle white-space-nowrap"><a href="#">
+                                <strong>#{{$product->id}}</strong></a>
                             <strong>{{$product->name}}</strong>
                         </td>
-                        <td class="date py-2 align-middle">{{$product->description}}</td>
-                        <td class="address py-2 align-middle white-space-nowrap">{{$product->price}}
+                        <td class="image py-2 align-middle"><img src={{$product->image}} width="60px" /></td>
+                        <td class="address py-2 align-middle white-space-nowrap">{{$product->price}}</td>
+                        <td class="brand py-2 align-middle white-space-nowrap">{{$product->brand}}</td>
+                        <td class="stock py-2 align-middle white-space-nowrap">{{$product->stock}}</td>
+                        <td class="state py-2 align-middle white-space-nowrap">
+                            @if ($product->state === "Neuf")
+                            <span class="badge rounded-pill badge-soft-primary">{{$product->state}}</span>
+                            @else
+                            <span class="badge rounded-pill badge-soft-danger">{{$product->state}}</span>
+                            @endif
                         </td>
-                        <td class="status py-2 align-middle white-space-nowrap">{{$product->brand}}
+                        <td class="discount py-2 align-middle white-space-nowrap">-{{$product->discount}} %</td>
+                        <td class="hidden align-middle white-space-nowrap">
+                            @if ($product->hidden === 1)
+                            <span class="badge badge rounded-pill badge-soft-success">
+                                <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                Active
+                            </span>
+                            @else
+                            <span class="badge badge rounded-pill badge-soft-secondary">
+                                <span class="me-1 fas fa-ban" data-fa-transform="shrink-2"></span>
+                                Blocked
+                            </span>
+                            @endif
                         </td>
                         <td class="py-2 align-middle white-space-nowrap text-end">
                             <div class="dropdown font-sans-serif position-static">
