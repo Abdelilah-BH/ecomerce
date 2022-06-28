@@ -55,6 +55,7 @@
                     </tr>
                 </thead>
                 <tbody class="list" id="table-categories-body">
+                    @foreach ($categories as $category)
                     <tr class="btn-reveal-trigger">
                         <td class="align-middle" style="width: 28px;">
                             <div class="form-check fs-0 mb-0 d-flex align-items-center">
@@ -62,18 +63,22 @@
                                     data-bulk-select-row="data-bulk-select-row" />
                             </div>
                         </td>
-                        <td class="order py-2 align-middle white-space-nowrap"><a
-                                href="../../../app/e-commerce/orders/order-details.html"> <strong>#181</strong></a> by
-                            <strong>Ricky Antony</strong><br /><a href="mailto:ricky@example.com">ricky@example.com</a>
-                        </td>
-                        <td class="date py-2 align-middle">20/04/2019</td>
-                        <td class="address py-2 align-middle white-space-nowrap">Ricky Antony, 2392 Main Avenue,
-                            Penasauka, New Jersey 02149
-                            <p class="mb-0 text-500">Via Flat Rate</p>
-                        </td>
-                        <td class="status py-2 align-middle text-center fs-0 white-space-nowrap"><span
-                                class="badge badge rounded-pill d-block badge-soft-success">Completed<span
-                                    class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span>
+                        <td class="name py-2 align-middle white-space-nowrap">{{$category->name}}</td>
+                        <td class="description py-2 align-middle">{{$category->description}}</td>
+                        <td class="order py-2 align-middle white-space-nowrap">{{$category->order}}</td>
+                        <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
+                            @if ($category->status === 1)
+                            <span class="badge badge rounded-pill d-block badge-soft-success">
+                                <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                Active
+                            </span>
+                            @else
+                            <span class="badge badge rounded-pill d-block badge-soft-danger">
+                                <span class="me-1 fas fa-ban" data-fa-transform="shrink-2"></span>
+                                Desactive
+                            </span>
+                            @endif
+
                         </td>
                         <td class="py-2 align-middle white-space-nowrap text-end">
                             <div class="dropdown font-sans-serif position-static">
@@ -93,44 +98,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="btn-reveal-trigger">
-                        <td class="align-middle" style="width: 28px;">
-                            <div class="form-check fs-0 mb-0 d-flex align-items-center">
-                                <input class="form-check-input" type="checkbox" id="checkbox-10"
-                                    data-bulk-select-row="data-bulk-select-row" />
-                            </div>
-                        </td>
-                        <td class="order py-2 align-middle white-space-nowrap"><a
-                                href="../../../app/e-commerce/orders/order-details.html"> <strong>#191</strong></a> by
-                            <strong>David Peters</strong><br /><a href="mailto:peter@example.com">peter@example.com</a>
-                        </td>
-                        <td class="date py-2 align-middle">29/04/2019</td>
-                        <td class="address py-2 align-middle white-space-nowrap">David Peters, Rhyd Y Groes, Rhosgoch,
-                            LL66 0AT
-                            <p class="mb-0 text-500">Via Link Road</p>
-                        </td>
-                        <td class="status py-2 align-middle text-center fs-0 white-space-nowrap"><span
-                                class="badge badge rounded-pill d-block badge-soft-success">Completed<span
-                                    class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span></span>
-                        </td>
-                        <td class="py-2 align-middle white-space-nowrap text-end">
-                            <div class="dropdown font-sans-serif position-static">
-                                <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button"
-                                    id="order-dropdown-10" data-bs-toggle="dropdown" data-boundary="viewport"
-                                    aria-haspopup="true" aria-expanded="false"><span
-                                        class="fas fa-ellipsis-h fs--1"></span></button>
-                                <div class="dropdown-menu dropdown-menu-end border py-0"
-                                    aria-labelledby="order-dropdown-10">
-                                    <div class="bg-white py-2"><a class="dropdown-item" href="#!">Completed</a><a
-                                            class="dropdown-item" href="#!">Processing</a><a class="dropdown-item"
-                                            href="#!">On Hold</a><a class="dropdown-item" href="#!">Pending</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item text-danger"
-                                            href="#!">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Products;
-use App\Http\Controllers\Categories;
-use App\Http\Controllers\Commandes;
-use App\Http\Controllers\Contact;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsController;
 use App\Models\Products as ModelsProducts;
 
 /*
@@ -28,20 +25,14 @@ Route::get("/", function(){
     return view("pages/home");
 });
 
-Route::get("/categories", "Categories@index");
+Route::get("/categories", [CategoriesController::class, "index"]);
 
 Route::get("/clients", function(){
     return view("pages/customer/index");
 });
 
 Route::get("/commandes", "Commandes@index");
-
-Route::get("/produits", function(){
-    $products = ModelsProducts::all();
-    return view('pages.product.index', [
-        'products' => $products,
-    ]);
-});
+Route::get("/produits", [ProductsController::class, 'index']);
 
 Route::get("/utilisateurs", function(){
     return view("pages/user/index");
