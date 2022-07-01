@@ -46,7 +46,7 @@
                             </div>
                         </th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="description">Description
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="description">Description
                         </th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order"
                             style="min-width: 12.5rem;">Classement</th>
@@ -64,7 +64,8 @@
                             </div>
                         </td>
                         <td class="name py-2 align-middle white-space-nowrap">{{$category->name}}</td>
-                        <td class="description py-2 align-middle">{{$category->description}}</td>
+                        <td class="description py-2 align-middle" style="min-width: 250px;">{{$category->description}}
+                        </td>
                         <td class="order py-2 align-middle white-space-nowrap">{{$category->order}}</td>
                         <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
                             @if ($category->status === 1)
