@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $products = ModelsProducts::all();
         return view('pages.product.index', [
             'products' => $products,
         ]);
+    }
+
+    public function add()
+    {
+        return view('pages.product.add');
     }
 }

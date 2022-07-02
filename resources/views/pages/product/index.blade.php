@@ -71,7 +71,7 @@
                             <strong>{{$product->name}}</strong>
                         </td>
                         <td class="image py-2 align-middle"><img src={{$product->image}} width="60px" /></td>
-                        <td class="address py-2 align-middle white-space-nowrap">{{$product->price}}</td>
+                        <td class="address py-2 align-middle white-space-nowrap">{{$product->price}} MAD</td>
                         <td class="brand py-2 align-middle white-space-nowrap">{{$product->brand}}</td>
                         <td class="stock py-2 align-middle white-space-nowrap">{{$product->stock}}</td>
                         <td class="state py-2 align-middle white-space-nowrap">

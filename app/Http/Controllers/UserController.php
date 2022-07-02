@@ -14,4 +14,9 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+    public function add()
+    {
+        return view("pages.user.ajouter", []);
+    }
 }

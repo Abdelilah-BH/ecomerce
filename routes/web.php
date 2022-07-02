@@ -5,8 +5,6 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 
-use App\Models\User;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +21,7 @@ Route::get("/", function () {
 });
 
 Route::get("/categories", [CategoriesController::class, "index"]);
+Route::get("/categories/ajouter", [CategoriesController::class, "add"]);
 
 Route::get("/clients", function () {
     return view("pages/customer/index");
@@ -33,5 +32,7 @@ Route::get("/commandes", function () {
 });
 
 Route::get("/produits", [ProductsController::class, 'index']);
+Route::get("/produits/ajouter", [ProductsController::class, 'add']);
 
 Route::get("/utilisateurs", [UserController::class, 'index']);
+Route::get("/utilisateurs/ajouter", [UserController::class, 'add']);

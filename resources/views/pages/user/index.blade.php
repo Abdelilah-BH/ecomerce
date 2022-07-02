@@ -20,9 +20,9 @@
                     </div>
                 </div>
                 <div id="orders-actions">
-                    <button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-plus"
-                            data-fa-transform="shrink-3 down-2"></span><span
-                            class="d-none d-sm-inline-block ms-1">Ajouter</span></button>
+                    <a class="btn btn-falcon-default btn-sm" href="/utilisateurs/ajouter" type="button"><span
+                            class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span
+                            class="d-none d-sm-inline-block ms-1">Ajouter</span></a>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
                             data-fa-transform="shrink-3 down-2"></span><span
                             class="d-none d-sm-inline-block ms-1">Filter</span></button>
@@ -66,9 +66,36 @@
                                     data-bulk-select-row="data-bulk-select-row" />
                             </div>
                         </td>
-                        <td class="name py-2 align-middle white-space-nowrap">{{$user->name}}</td>
+                        <td class="name py-2 align-middle white-space-nowrap">
+                            <a href="#">
+                                <div class="d-flex d-flex align-items-center">
+                                    <div class="avatar avatar-xl me-2">
+                                        @if ($user->image === null)
+                                        <div class="avatar-name rounded-circle">
+                                            <span>{{substr($user->name,0,2)}}</span>
+                                        </div>
+                                        @else
+                                        <img class="rounded-circle" src="{{$user->image}}" alt="">
+                                        @endif
+                                    </div>
+                                    <div class="flex-1">
+                                        <h5 class="mb-0 fs--1">{{$user->name}}</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </td>
                         <td class="email py-2 align-middle">{{$user->email}}</td>
-                        <td class="admin py-2 align-middle white-space-nowrap">{{$user->admin}}</td>
+                        <td class="admin py-2 align-middle white-space-nowrap">
+                            @if ($user->admin === 1)
+                            <span class="badge badge rounded-pill d-block badge-soft-success">
+                                Oui
+                            </span>
+                            @else
+                            <span class="badge badge rounded-pill d-block badge-soft-danger">
+                                Non
+                            </span>
+                            @endif
+                        </td>
                         <td class="active py-2 align-middle text-center fs-0 white-space-nowrap">
                             @if ($user->active === 1)
                             <span class="badge badge rounded-pill d-block badge-soft-success">
@@ -81,7 +108,6 @@
                                 Desactive
                             </span>
                             @endif
-
                         </td>
                         <td class="email_verified_at py-2 align-middle text-center fs-0 white-space-nowrap">
                             @if ($user->email_verified_at === 1)
