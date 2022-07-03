@@ -16,6 +16,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get("/login", function () {
+    return view("pages/login");
+});
+
 Route::get("/", function () {
     return view("pages/home");
 });
