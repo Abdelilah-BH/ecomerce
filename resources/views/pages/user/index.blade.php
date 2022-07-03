@@ -1,11 +1,11 @@
 @extends('layout.master')
 @section('content')
 <div class="card mb-3" id="usersTable"
-    data-list='{"valueNames":["name","email","email","active","email_verified_at","created_at"],"page":20,"pagination":true}'>
+    data-list='{"valueNames":["name","email","phone","admin","active","email_verified_at","created_at"],"page":20,"pagination":true}'>
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Utilisateurs</h5>
+                <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">List des utilisateurs</h5>
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
                 <div class="d-none" id="orders-bulk-actions">
@@ -46,6 +46,7 @@
                         </th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="email">E-mail</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="phone">Telephone</th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="admin">Admin</th>
                         <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="active">Active</th>
                         <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="email_verified_at">
@@ -70,13 +71,13 @@
                             <a href="#">
                                 <div class="d-flex d-flex align-items-center">
                                     <div class="avatar avatar-xl me-2">
-                                        @if ($user->image === null)
+                                        {{-- @if ($user->image === null) --}}
                                         <div class="avatar-name rounded-circle">
                                             <span>{{substr($user->name,0,2)}}</span>
                                         </div>
-                                        @else
-                                        <img class="rounded-circle" src="{{$user->image}}" alt="">
-                                        @endif
+                                        {{-- @else
+                                        <img class="rounded-circle" src={{$user->image}} alt="">
+                                        @endif --}}
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="mb-0 fs--1">{{$user->name}}</h5>
@@ -85,6 +86,7 @@
                             </a>
                         </td>
                         <td class="email py-2 align-middle">{{$user->email}}</td>
+                        <td class="phone py-2 align-middle">{{$user->phone}}</td>
                         <td class="admin py-2 align-middle white-space-nowrap">
                             @if ($user->admin === 1)
                             <span class="badge badge rounded-pill d-block badge-soft-success">
@@ -96,7 +98,7 @@
                             </span>
                             @endif
                         </td>
-                        <td class="active py-2 align-middle text-center fs-0 white-space-nowrap">
+                        <td class="active py-2 align-middle text-center">
                             @if ($user->active === 1)
                             <span class="badge badge rounded-pill d-block badge-soft-success">
                                 <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>
@@ -109,7 +111,7 @@
                             </span>
                             @endif
                         </td>
-                        <td class="email_verified_at py-2 align-middle text-center fs-0 white-space-nowrap">
+                        <td class="email_verified_at py-2 align-middle text-center">
                             @if ($user->email_verified_at === 1)
                             <span class="badge badge rounded-pill badge-soft-success">
                                 <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>Verifier
@@ -120,7 +122,7 @@
                             </span>
                             @endif
                         </td>
-                        <td class="created_at py-2 align-middle text-center fs-0 white-space-nowrap">
+                        <td class="created_at py-2 align-middle text-center">
                             {{date("Y-m-d H:i",strtotime($user->created_at))}}
                         </td>
                         <td class="py-2 align-middle white-space-nowrap text-end">

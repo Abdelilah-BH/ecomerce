@@ -95,7 +95,7 @@
                                                 <h3>Account Login</h3>
                                             </div>
                                         </div>
-                                        <form>
+                                        <form action="/">
                                             <div class="mb-3">
                                                 <label class="form-label" for="card-email">Email address</label>
                                                 <input class="form-control" id="card-email" type="email" />

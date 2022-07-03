@@ -34,17 +34,21 @@ class UserController extends Controller
 
         $name = $req->firstName . " " . $req->lasName;
         $email = $req->email;
+        $admin = $req->admin;
+        $active = $req->active;
         $phone = $req->phone;
         $password = bcrypt($req->password);
 
         $user = new User();
         $user->name = $name;
         $user->email = $email;
+        $user->admin = $admin;
+        $user->active = $active;
         $user->phone = $phone;
         $user->password = $password;
         $user->save();
 
-        // return $req->input();
+        return $req->input();
 
         // return view("pages.user.index", []);
     }
