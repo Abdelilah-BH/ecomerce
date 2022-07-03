@@ -35,4 +35,8 @@ Route::get("/produits", [ProductsController::class, 'index']);
 Route::get("/produits/ajouter", [ProductsController::class, 'add']);
 
 Route::get("/utilisateurs", [UserController::class, 'index']);
-Route::get("/utilisateurs/ajouter", [UserController::class, 'add']);
+
+Route::get("/utilisateurs/ajouter", function () {
+    return view("pages/user/ajouter");
+});
+Route::post("/utilisateurs/ajouter", [UserController::class, "insert"]);

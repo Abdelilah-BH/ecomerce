@@ -15,8 +15,37 @@ class UserController extends Controller
         ]);
     }
 
-    public function add()
+    public function insert(Request $req)
     {
-        return view("pages.user.ajouter", []);
+
+        $req->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ], [
+            'firstName.required' => 'Nom est obligatoire.',
+            'lastName.required' => 'Prenom est obligatoire.',
+            'email.required' => 'E-mail est obligatoire.',
+            'email.email' => 'E-mail doit etre une adresse e-mail valide.',
+            'password.required' => 'Mot de passe est obligatoire.',
+        ]);
+
+
+        $name = $req->firstName . " " . $req->lasName;
+        $email = $req->email;
+        $phone = $req->phone;
+        $password = bcrypt($req->password);
+
+        $user = new User();
+        $user->name = $name;
+        $user->email = $email;
+        $user->phone = $phone;
+        $user->password = $password;
+        $user->save();
+
+        // return $req->input();
+
+        // return view("pages.user.index", []);
     }
 }

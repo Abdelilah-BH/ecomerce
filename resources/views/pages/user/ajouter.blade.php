@@ -13,8 +13,8 @@
                 <div class="avatar avatar-5xl avatar-profile shadow-sm img-thumbnail rounded-circle">
                     <div class="h-100 w-100 rounded-circle overflow-hidden position-relative">
                         <img src="#" alt="" data-dz-thumbnail="data-dz-thumbnail" width="200">
-                        <input class="d-none" id="profile-image" type="file">
-                        <label class="mb-0 overlay-icon d-flex flex-center" for="profile-image"><span
+                        <input class="d-none" id="image" name="image" type="file">
+                        <label class="mb-0 overlay-icon d-flex flex-center" for="image"><span
                                 class="bg-holder overlay overlay-0"></span><span
                                 class="z-index-1 text-white dark__text-white text-center fs--1"><svg
                                     class="svg-inline--fa fa-camera fa-w-16" aria-hidden="true" focusable="false"
@@ -67,59 +67,75 @@
     </div>
 </div>
 <div class="row g-0">
-    <div class="col-lg-8 pe-lg-2">
+    <div class="col-lg-12 pe-lg-2">
         <div class="card mb-3">
             <div class="card-header">
                 <h5 class="mb-0">Profile Settings</h5>
             </div>
             <div class="card-body bg-light">
-                <form class="row g-3">
+                <form class="row g-3" action="/utilisateurs/ajouter" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="col-lg-6">
                         <label class="form-label" for="first-name">Nom</label>
-                        <input class="form-control" id="first-name" type="text">
+                        <div class="has-validation">
+                            <input class="form-control @error('firstName') is-invalid @enderror" id="first-name"
+                                value="{{old('firstName')}}" name="firstName">
+                            @error('firstName')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="last-name">Prenom</label>
-                        <input class="form-control" id="last-name" type="text">
+                        <div class="has-validation">
+                            <input class="form-control @error('lastName') is-invalid @enderror" id="last-name"
+                                name="lastName" value="{{old('lastName')}}">
+                            @error('lastName')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="email">E-mail</label>
-                        <input class="form-control" id="email" type="text">
+                        <div class="has-validation">
+                            <input class="form-control @error('email') is-invalid @enderror" id="email" name="email"
+                                value="{{old('email')}}">
+                            @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" for="phone">Telephone</label>
-                        <input class="form-control" id="phone" type="text">
+                        <input class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-label" for="password">Mot de passe</label>
+                        <div class="has-validation">
+                            <input class="form-control @error('password') is-invalid @enderror" id="password"
+                                name="password" type="password" value="{{old('password')}}">
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-label" for="confirm-password">Confirmez le mot de passe</label>
+                        <input class="form-control" id="confirm-password" type="password">
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button class="btn btn-primary" type="submit">Update</button>
+                        <button class="btn btn-primary" type="submit">Ajouter</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 ps-lg-2">
-        <div class="sticky-sidebar">
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5 class="mb-0">Changer le mot de passe</h5>
-                </div>
-                <div class="card-body bg-light">
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label" for="old-password">Ancien mot de passe</label>
-                            <input class="form-control" id="old-password" type="password">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="new-password">Nouveau mot de passe</label>
-                            <input class="form-control" id="new-password" type="password">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="confirm-password">Confirmez le mot de passe</label>
-                            <input class="form-control" id="confirm-password" type="password">
-                        </div>
-                        <button class="btn btn-primary d-block w-100" type="submit">Confirmer</button>
-                    </form>
-                </div>
             </div>
         </div>
     </div>
