@@ -43,11 +43,11 @@
                     <h6 class="fw-bold">Quel est son rôle ?</h6>
                     <div class="ps-2">
                         <div class="form-check mb-0 lh-1">
-                            <input class="form-check-input" type="radio" value={{true}} id="admin" name="admin">
+                            <input class="form-check-input" type="radio" value="1" id="admin" name="admin">
                             <label class="form-check-label mb-0" for="admin">Admin</label>
                         </div>
                         <div class="form-check mb-0 lh-1">
-                            <input class="form-check-input" type="radio" value={{false}} id="admin" name="admin"
+                            <input class="form-check-input" type="radio" value="0" id="admin" name="admin"
                                 checked="checked">
                             <label class="form-check-label mb-0" for="admin">Utilisateur</label>
                         </div>
@@ -55,12 +55,12 @@
                     <h6 class="mt-2 fw-bold">Quel est son statut ?</h6>
                     <div class="ps-2">
                         <div class="form-check mb-0 lh-1">
-                            <input class="form-check-input" type="radio" value={{true}} id="active" name="active"
+                            <input class="form-check-input" type="radio" value="1" id="active" name="active"
                                 checked="checked">
                             <label class="form-check-label mb-0" for="active">Active</label>
                         </div>
                         <div class="form-check mb-0 lh-1">
-                            <input class="form-check-input" type="radio" value={{false}} id="active" name="active">
+                            <input class="form-check-input" type="radio" value="0" id="active" name="active">
                             <label class="form-check-label mb-0" for="active">Desactive</label>
                         </div>
                     </div>

@@ -39,6 +39,8 @@ class UserController extends Controller
         $phone = $req->phone;
         $password = bcrypt($req->password);
 
+
+
         $user = new User();
         $user->name = $name;
         $user->email = $email;
@@ -46,10 +48,17 @@ class UserController extends Controller
         $user->active = $active;
         $user->phone = $phone;
         $user->password = $password;
+        if ($req->file('image')) {
+            $file = $req->file('image');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('/'), $filename);
+            $user->image = 'public/img/' . $filename;
+            // dd($filename);
+        }
         $user->save();
 
-        return $req->input();
+        // return $file;
 
-        // return view("pages.user.index", []);
+        return view("pages.user.ajouter", []);
     }
 }

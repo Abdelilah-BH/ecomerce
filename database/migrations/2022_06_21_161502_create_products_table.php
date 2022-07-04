@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name", 100);
             $table->text("description")->nullable();
-            $table->foreignId("category_id")->nullable()->constrained("categories")->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId("category_id")->nullable()->constrained("categories")->onUpdate('cascade')->onDelete('cascade');
             $table->double("price");
             $table->smallInteger("rating")->nullable();
             $table->integer("discount")->nullable();
