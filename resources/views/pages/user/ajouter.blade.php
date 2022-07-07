@@ -1,6 +1,21 @@
 @extends('layout.master')
 
 @section('content')
+@if (isset($message) && $message)
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5" aria-live="polite" aria-atomic="true">
+    <div class="toast show align-items-center text-white bg-success border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                {{$message}}
+            </div>
+            <button class="btn-close btn-close-white me-2 m-auto" type="button" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+@endif
+
 <form action="/utilisateurs/ajouter" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row g-0">
@@ -14,8 +29,8 @@
                     </div>
                     <div class="avatar avatar-5xl avatar-profile shadow-sm img-thumbnail rounded-circle">
                         <div class="h-100 w-100 rounded-circle overflow-hidden position-relative">
-                            <img src="#" alt="" data-dz-thumbnail="data-dz-thumbnail" width="200">
-                            <input class="d-none" id="image" name="image" type="file">
+                            <img src="#" alt="" data-dz-thumbnail="data-dz-thumbnail" width="200" id="cover">
+                            <input class="d-none" id="image" name="image" type="file" onchange="loadFile(event)">
                             <label class="mb-0 overlay-icon d-flex flex-center" for="image"><span
                                     class="bg-holder overlay overlay-0"></span><span
                                     class="z-index-1 text-white dark__text-white text-center fs--1"><svg
@@ -115,13 +130,13 @@
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="phone">Telephone</label>
-                            <input class="form-control" id="phone" name="phone">
+                            <input class="form-control" id="phone" value="{{old('phone')}}" name="phone">
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="password">Mot de passe</label>
                             <div class="has-validation">
                                 <input class="form-control @error('password') is-invalid @enderror" id="password"
-                                    name="password" type="password" value="{{old('password')}}">
+                                    name="password" type="password">
                                 @error('password')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -130,11 +145,12 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="confirm-password">Confirmez le mot de passe</label>
-                            <input class="form-control" id="confirm-password" type="password">
+                            <label class="form-label" for="password">Confirmez le mot de passe</label>
+                            <input class="form-control" id="password" type="password"
+                                name="password_confirmation" required autocomplete="current-password">
                         </div>
                         <div class="col-12 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Ajouter</button>
+                            <button class="btn btn-primary" id="liveToastBtn" type="submit">Ajouter</button>
                         </div>
                     </div>
                 </div>
@@ -142,4 +158,12 @@
         </div>
     </div>
 </form>
+
 @endsection
+
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('cover');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>

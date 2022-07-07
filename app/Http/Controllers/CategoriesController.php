@@ -16,8 +16,31 @@ class CategoriesController extends Controller
         ]);
     }
 
-    public function add()
+    public function insert(Request $req)
     {
-        return view('pages.category.add');
+        $req->validate([
+            'name' => 'required',
+            'order' => 'required|min:0',
+            'status' => 'required',
+        ], [
+            'name.required' => 'Nom de categorie est obligatoire.',
+            'order.required' => 'Classement est obligatoire.',
+            'status.required' => 'Status est obligatoire.',
+        ]);
+        try {
+            $category = Categories::create([
+                'name' => $req->name,
+                'description' => $req->description,
+                'order' => $req->order,
+                'status' => $req->status
+            ]);
+            // dd($category);
+            return view('pages.category.add', [
+                "message" => "Categorie bien ajouter 🎉🎊"
+            ]);
+        } catch (\Exception $err) {
+            dd($err);
+            return view('pages.category.add');
+        }
     }
 }

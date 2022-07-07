@@ -71,13 +71,13 @@
                             <a href="#">
                                 <div class="d-flex d-flex align-items-center">
                                     <div class="avatar avatar-xl me-2">
-                                        {{-- @if ($user->image === null) --}}
+                                        @if ($user->image === null) --}}
                                         <div class="avatar-name rounded-circle">
                                             <span>{{substr($user->name,0,2)}}</span>
                                         </div>
-                                        {{-- @else
+                                        @else
                                         <img class="rounded-circle" src={{$user->image}} alt="">
-                                        @endif --}}
+                                        @endif
                                     </div>
                                     <div class="flex-1">
                                         <h5 class="mb-0 fs--1">{{$user->name}}</h5>

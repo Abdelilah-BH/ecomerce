@@ -43,16 +43,9 @@
                     </a>
                     <a class="nav-link" href="/utilisateurs" role="button" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-icon">
-                                <i class="fas fa-user-cog"></i>
-                            </span>
-                            <span class="nav-link-text ps-2">Utilisateurs</span>
-                        </div>
-                    </a>
-                    <a class="nav-link" href="/clients" role="button" data-bs-toggle="" aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-icon">
                                 <i class="fas fa-user"></i>
                             </span>
-                            <span class="nav-link-text ps-2">Clients</span>
+                            <span class="nav-link-text ps-2">Utilisateurs</span>
                         </div>
                     </a>
                 </li>
