@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
-use App\Models\Categories;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +35,7 @@ Route::get("/commandes", function () {
 });
 
 Route::get("/produits", [ProductsController::class, 'index']);
-Route::get("/produits/ajouter", [ProductsController::class, 'add']);
+Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct']);
 
 Route::get("/utilisateurs", [UserController::class, 'index']);
 Route::get("/utilisateurs/ajouter", function () {

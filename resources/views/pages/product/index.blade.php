@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div id="products-actions">
-                    <button class="btn btn-falcon-default btn-sm" type="button"><span class="fas fa-plus"
-                            data-fa-transform="shrink-3 down-2"></span><span
-                            class="d-none d-sm-inline-block ms-1">Ajouter</span></button>
+                    <a class="btn btn-falcon-default btn-sm" href="/produits/ajouter" role="button"><span
+                            class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span
+                            class="d-none d-sm-inline-block ms-1">Ajouter</span></a>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
                             data-fa-transform="shrink-3 down-2"></span><span
                             class="d-none d-sm-inline-block ms-1">Filter</span></button>

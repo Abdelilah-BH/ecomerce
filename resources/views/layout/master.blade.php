@@ -23,7 +23,8 @@
   <link rel="manifest" href={{asset("assets/img/favicons/manifest.json")}}>
   <meta name="msapplication-TileImage" content={{asset("assets/img/favicons/mstile-150x150.png")}}>
   <meta name="theme-color" content="#ffffff">
-  <script src={{asset('assets/js/config.js')}}></script>
+  <script src={{asset('assets/js/config.js')}}></script>.
+  <link href={{asset("vendors/dropzone/dropzone.min.css")}} rel="stylesheet" />
   <script src={{asset("vendors/overlayscrollbars/OverlayScrollbars.min.js")}}></script>
 
 
@@ -296,6 +297,7 @@
   <script src={{asset("vendors/anchorjs/anchor.min.js")}}></script>
   <script src={{asset("vendors/is/is.min.js")}}></script>
   {{-- <script src={{asset("vendors/echarts/echarts.min.js")}}></script> --}}
+  <script src={{asset("vendors/dropzone/dropzone.min.js")}}></script>
   <script src={{asset("vendors/fontawesome/all.min.js")}}></script>
   <script src={{asset("vendors/lodash/lodash.min.js")}}></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>

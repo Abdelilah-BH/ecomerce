@@ -17,16 +17,21 @@ class ProductsFactory extends Factory
     public function definition()
     {
         return [
+            'sku' => $this->faker->randomNumber(10),
             'name' => $this->faker->name(),
-            'description'=> $this->faker->text(),
-            'price'=> $this->faker->randomNumber(2),
+            'graphics' => $this->faker->name(),
+            'description' => $this->faker->text(),
+            'price' => $this->faker->randomNumber(2),
             'rating' => $this->faker->numberBetween(0, 10),
             'discount' => $this->faker->numberBetween(0, 100),
             'brand' => $this->faker->company(),
+            'tag' => $this->faker->name(),
+            'weight' => $this->faker->numberBetween(0, 50),
             'stock' => $this->faker->numberBetween(0, 999),
-            'hidden'=> $this->faker->boolean(),
-            'availability'=> $this->faker->boolean(),
-            'state' => $this->faker->randomElement(["Neuf", "Occasion"]),
+            'hidden' => $this->faker->boolean(),
+            'availability' => $this->faker->boolean(),
+            'status' => $this->faker->randomElement(["Neuf", "Occasion"]),
+            'type_disque_dur' => $this->faker->randomElement(["SSD", "HDD"]),
             'image' => $this->faker->imageUrl(),
         ];
     }
