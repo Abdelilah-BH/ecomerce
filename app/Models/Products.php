@@ -10,12 +10,22 @@ class Products extends Model
     use HasFactory;
 
     protected $fillable = [
+        'sku',
         'name',
-        'description',
+        'category_id',
         'price',
+        'discount',
+        'stock',
+        'tag',
         'brand',
+        'model',
+        'storage',
+        'type_disque_dur',
+        'graphics',
+        'weight',
+        'status',
         'hidden',
-        'availability',
-        'image',
+        'description',
+        'images',
     ];
 }

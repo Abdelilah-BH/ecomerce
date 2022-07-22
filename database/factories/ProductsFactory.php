@@ -17,7 +17,7 @@ class ProductsFactory extends Factory
     public function definition()
     {
         return [
-            'sku' => $this->faker->randomNumber(10),
+            'sku' => $this->faker->randomNumber(6),
             'name' => $this->faker->name(),
             'graphics' => $this->faker->name(),
             'description' => $this->faker->text(),
@@ -26,13 +26,15 @@ class ProductsFactory extends Factory
             'discount' => $this->faker->numberBetween(0, 100),
             'brand' => $this->faker->company(),
             'tag' => $this->faker->name(),
+            'model' => $this->faker->name(),
+            'storage' => $this->faker->numberBetween(0, 50),
             'weight' => $this->faker->numberBetween(0, 50),
             'stock' => $this->faker->numberBetween(0, 999),
             'hidden' => $this->faker->boolean(),
             'availability' => $this->faker->boolean(),
             'status' => $this->faker->randomElement(["Neuf", "Occasion"]),
             'type_disque_dur' => $this->faker->randomElement(["SSD", "HDD"]),
-            'image' => $this->faker->imageUrl(),
+            'images' => $this->faker->imageUrl(),
         ];
     }
 }

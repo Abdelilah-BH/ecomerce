@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string("brand");
             $table->string("tag");
             $table->integer("stock");
+            $table->string("model");
+            $table->integer("storage");
             $table->integer("weight");
             $table->boolean("hidden")->default(false);
             $table->boolean("availability")->default(true);

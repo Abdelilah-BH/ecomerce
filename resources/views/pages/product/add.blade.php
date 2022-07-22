@@ -56,7 +56,7 @@
                             <div class="has-validation">
                                 <select class="form-select @error('category') is-invalid @enderror" id="category"
                                     name="category" value="{{old('category')}}" aria-label="Default select example">
-                                    <option selected="">Selectionner un element</option>
+                                    <option value="" selected="">Selectionner un element</option>
                                     @foreach ($categories as $category)
                                     <option value={{$category->id}}>{{$category->name}}</option>
                                     @endforeach
@@ -82,8 +82,13 @@
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="discount">Remise</label>
-                            <input class="form-control" id="discount" value="{{old('discount')}}" type="number"
-                                name="discount">
+                            <input class="form-control @error('discount') is-invalid @enderror" id="discount"
+                                value="{{old('discount')}}" type="number" name="discount">
+                            @error('discount')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="stock">Stock</label>
@@ -114,7 +119,7 @@
                             <input class="form-control" id="storage" name="storage" type="number">
                         </div>
                         <div class="col-lg-6">
-                            <label class="form-label" for="type_disque_dur">Categorie</label>
+                            <label class="form-label" for="type_disque_dur">Type disque dur</label>
                             <div class="has-validation">
                                 <select class="form-select @error('type_disque_dur') is-invalid @enderror"
                                     id="type_disque_dur" name="type_disque_dur" value="{{old('type_disque_dur')}}"
@@ -136,7 +141,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label class="form-label" for="weight">Poids</label>
-                            <input class="form-control" id="weight" name="weight">
+                            <input class="form-control" type="number" id="weight" name="weight">
                         </div>
                     </div>
                 </div>
@@ -161,15 +166,15 @@
                             <label class="form-label">Quel est son statut ?</label>
                             <div class="ps-2">
                                 <div class="form-check mb-0 lh-1">
-                                    <input class="form-check-input" type="radio" value="status" id="Neuf" name="status">
-                                    <label class="form-check-label mb-0" for="Neuf">Neuf
-                                    </label>
+                                    <input class="form-check-input" type="radio" value="Neuf" id="Neuf" name="status"
+                                        required>
+                                    <label class="form-check-label mb-0" for="Neuf">Neuf</label>
                                 </div>
                                 <div class="form-check mb-0 lh-1">
                                     <input class="form-check-input" type="radio" value="Occasion" id="Occasion"
-                                        checked="checked" name="status">
-                                    <label class="form-check-label mb-0" for="Occasion">Occasion
-                                    </label>
+                                        checked="checked" name="status" required>
+                                    <label class="form-check-label mb-0" for="Occasion">Occasion</label>
+                                    <div class="invalid-feedback">More example invalid feedback text</div>
                                 </div>
                             </div>
                         </div>
