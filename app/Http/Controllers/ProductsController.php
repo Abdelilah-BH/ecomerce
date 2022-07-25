@@ -51,13 +51,12 @@ class ProductsController extends Controller
             'hidden.required' => 'Caché est obligatoire.',
         ]);
         try {
-            dd($req->input());
             $sku = $req->sku;
             $name = $req->name;
             $categoryId = $req->category;
             $price = $req->price;
             $discount = $req->discount;
-            $stock = $req->stock;
+            $stock = $req->stock ?? 0;
             $tags = $req->tags;
             $brand = $req->brand;
             $model = $req->model;
@@ -88,24 +87,16 @@ class ProductsController extends Controller
                 'description' => $description,
                 'images' => "",
             ]);
-            $categories = Categories::all();
+            // $categories = Categories::all();
             if (isset($product->id) && $product->id) {
-                return view('pages.product.add', [
-                    'categories' => $categories,
-                    'message' => "Produit est bien ajouter.",
-                ]);
+                return redirect()->route('getAddProduct')->with("message", "Produit est bien ajouter.");
             } else {
-                return view('pages.product.add', [
-                    'categories' => $categories,
-                    'message' => "Produit Non ajouter.",
-                ]);
+                return redirect('getAddProduct')->with("message", "Produit non ajouter.");
             }
         } catch (\Exception $err) {
             $categories = Categories::all();
             dd($err);
-            return view('pages.product.add', [
-                'categories' => $categories,
-            ]);
+            return redirect()->route('getAddProduct');
         }
     }
 }
