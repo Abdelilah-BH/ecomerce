@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <!-- ===============================================-->
   <!--    Document Title-->
   <!-- ===============================================-->
@@ -23,7 +22,7 @@
   <link rel="manifest" href={{asset("assets/img/favicons/manifest.json")}}>
   <meta name="msapplication-TileImage" content={{asset("assets/img/favicons/mstile-150x150.png")}}>
   <meta name="theme-color" content="#ffffff">
-  <script src={{asset('assets/js/config.js')}}></script>.
+  <script src={{asset('assets/js/config.js')}}></script>
   <link href={{asset("vendors/dropzone/dropzone.min.css")}} rel="stylesheet" />
   <script src={{asset("vendors/overlayscrollbars/OverlayScrollbars.min.js")}}></script>
 
