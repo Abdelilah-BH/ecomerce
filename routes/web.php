@@ -35,8 +35,8 @@ Route::get("/commandes", function () {
 });
 
 Route::get("/produits", [ProductsController::class, 'index']);
-Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct']);
-Route::post("/produits/ajouter", [ProductsController::class, 'insert']);
+Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct'])->name('getAddProduct');
+Route::post("/produits/ajouter", [ProductsController::class, 'insert'])->name('addProduct');
 
 Route::get("/utilisateurs", [UserController::class, 'index']);
 Route::get("/utilisateurs/ajouter", function () {
