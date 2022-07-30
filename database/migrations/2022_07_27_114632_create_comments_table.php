@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('like');
             $table->integer('dislike');
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_product');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_product')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
