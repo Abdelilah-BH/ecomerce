@@ -213,9 +213,7 @@
                                 <input name="file" type="file" multiple="multiple" />
                             </div>
                             <div class="dz-message" data-dz-message="data-dz-message"> <img class="me-2"
-                                    src={{asset("assets/img/icons/cloud-upload.svg")}} width="25" alt="" />Drop your
-                                files
-                                here</div>
+                                    src={{asset("assets/img/icons/cloud-upload.svg")}} width="25" alt="" />Déposez vos fichiers ici</div>
                             <div class="dz-preview dz-preview-multiple m-0 d-flex flex-column">
                                 <div class="d-flex media mb-3 pb-3 border-bottom btn-reveal-trigger"><img
                                         class="dz-image" src={{asset("assets/img/generic/image-file-2.png")}} alt="..."
