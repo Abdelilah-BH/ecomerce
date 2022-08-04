@@ -15,31 +15,38 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get("/login", function () {
-    return view("pages/login");
-})->name('login');
+// ====================== Client ==========================================
 
 Route::get("/", function () {
-    return view("pages/home");
+    return view("client/pages/home");
+});
+
+// ====================== Dashbord ========================================
+
+Route::get("/admin/login", function () {
+    return view("dashboard/pages/login");
+})->name('login');
+
+Route::get("/admin", function () {
+    return view("dashboard/pages/home");
 })->name('home.index');
 
-Route::get("/categories", [CategoriesController::class, "index"])->name('categories.index');
-Route::get("/categories/ajouter",  function () {
-    return view("pages/category/add");
+Route::get("/admin/categories", [CategoriesController::class, "index"])->name('categories.index');
+Route::get("/admin/categories/ajouter",  function () {
+    return view("dashboard/pages/category/add");
 })->name('categories.create');
-Route::post("/categories/ajouter", [CategoriesController::class, "insert"])->name('categories.store');
+Route::post("/admin/categories/ajouter", [CategoriesController::class, "insert"])->name('categories.store');
 
-Route::get("/commandes", function () {
+Route::get("/admin/commandes", function () {
     return view("dashboard/pages/order/index");
 })->name('commandes.index');
 
-Route::get("/produits", [ProductsController::class, 'index'])->name('produits.index');
-Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct'])->name('produits.create');
-Route::post("/produits/ajouter", [ProductsController::class, 'insert'])->name('produits.store');
+Route::get("/admin/produits", [ProductsController::class, 'index'])->name('produits.index');
+Route::get("/admin/produits/ajouter", [ProductsController::class, 'getAddProduct'])->name('produits.create');
+Route::post("/admin/produits/ajouter", [ProductsController::class, 'insert'])->name('produits.store');
 
-Route::get("/utilisateurs", [UserController::class, 'index'])->name('utilisateurs.index');
-Route::get("/utilisateurs/ajouter", function () {
-    return view("pages/user/ajouter");
+Route::get("/admin/utilisateurs", [UserController::class, 'index'])->name('utilisateurs.index');
+Route::get("/admin/utilisateurs/ajouter", function () {
+    return view("dashboard/pages/user/ajouter");
 })->name('utilisateurs.create');
-Route::post("/utilisateurs/ajouter", [UserController::class, "insert"])->name('utilisateurs.store');
+Route::post("/admin/utilisateurs/ajouter", [UserController::class, "insert"])->name('utilisateurs.store');

@@ -10,7 +10,7 @@
             <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
                 data-bs-placement="left" title="Menu"><span class="navbar-toggle-icon"><span
                         class="toggle-line"></span></span></button>
-        </div><a class="navbar-brand" href="/">
+        </div><a class="navbar-brand" href={{route('home.index')}}>
             <div class="d-flex py-3">
                 <span class="font-sans-serif">Ecom</span>
             </div>

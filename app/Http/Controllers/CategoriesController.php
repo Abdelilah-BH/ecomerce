@@ -11,7 +11,7 @@ class CategoriesController extends Controller
     {
         $categories = Categories::all();
 
-        return view("pages/category/index", [
+        return view("dashboard/pages/category/index", [
             'categories' => $categories,
         ]);
     }
