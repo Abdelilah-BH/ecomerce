@@ -10,7 +10,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view("pages.user.index", [
+        return view("dashboard.pages.user.index", [
             'users' => $users
         ]);
     }
@@ -53,11 +53,11 @@ class UserController extends Controller
             }
             $user->save();
 
-            return view("pages.user.ajouter", [
+            return view("dashboard.pages.user.ajouter", [
                 "message" => "Utilisateur ajouter avec success 🚀"
             ]);
         } catch (\Exception $err) {
-            return view("pages.user.ajouter", [
+            return view("dashboard.pages.user.ajouter", [
                 "error" => "Error servenu!!"
             ]);
         }

@@ -31,7 +31,7 @@ Route::get("/categories/ajouter",  function () {
 Route::post("/categories/ajouter", [CategoriesController::class, "insert"])->name('categories.store');
 
 Route::get("/commandes", function () {
-    return view("pages/order/index");
+    return view("dashboard/pages/order/index");
 })->name('commandes.index');
 
 Route::get("/produits", [ProductsController::class, 'index'])->name('produits.index');

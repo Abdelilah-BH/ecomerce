@@ -12,11 +12,11 @@ class ProductsController extends Controller
     {
         try {
             $products = ModelsProducts::all();
-            return view('pages.product.index', [
+            return view('dashboard.pages.product.index', [
                 'products' => $products,
             ]);
         } catch (\Exception $err) {
-            return view('pages.product.index', [
+            return view('dashboard.pages.product.index', [
                 'products' => [],
             ]);
         }
@@ -26,7 +26,7 @@ class ProductsController extends Controller
     {
         try {
             $categories = Categories::all();
-            return view('pages.product.add', [
+            return view('dashboard.pages.product.add', [
                 'categories' => $categories,
             ]);
         } catch (\Exception $err) {

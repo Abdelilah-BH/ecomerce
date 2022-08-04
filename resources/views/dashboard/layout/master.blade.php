@@ -67,11 +67,11 @@
         container.classList.add('container-fluid');
         }
       </script>
-      @include('layout.slidebar')
+      @include('dashboard.layout.slidebar')
       <div class="content">
-        @include('layout.header')
+        @include('dashboard.layout.header')
         @yield("content")
-        @include('layout.footer')
+        @include('dashboard.layout.footer')
       </div>
       <div class="modal fade" id="authentication-modal" tabindex="-1" role="dialog"
         aria-labelledby="authentication-modal-label" aria-hidden="true">

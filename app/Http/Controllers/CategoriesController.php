@@ -35,12 +35,12 @@ class CategoriesController extends Controller
                 'status' => $req->status
             ]);
             // dd($category);
-            return view('pages.category.add', [
+            return view('dashboard.pages.category.add', [
                 "message" => "Categorie bien ajouter 🎉🎊"
             ]);
         } catch (\Exception $err) {
             dd($err);
-            return view('pages.category.add');
+            return view('dashboard.pages.category.add');
         }
     }
 }

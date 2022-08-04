@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('dashboard.layout.master')
 
 @section('content')
 <div class="card mb-3" id="categoriesTable"

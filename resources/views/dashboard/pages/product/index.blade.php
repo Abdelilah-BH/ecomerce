@@ -1,14 +1,15 @@
-@extends('layout.master')
+@extends('dashboard.layout.master')
+
 @section('content')
-<div class="card mb-3" id="usersTable"
-    data-list='{"valueNames":["name","email","phone","admin","active","email_verified_at","created_at"],"page":20,"pagination":true}'>
+<div class="card mb-3" id="productsTable"
+    data-list='{"valueNames":["name","image","price","rating", "discount", "stock", "state"],"page":20,"pagination":true}'>
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">List des utilisateurs</h5>
+                <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Produits</h5>
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
-                <div class="d-none" id="orders-bulk-actions">
+                <div class="d-none" id="products-bulk-actions">
                     <div class="d-flex">
                         <select class="form-select form-select-sm" aria-label="Bulk actions">
                             <option selected="">Bulk actions</option>
@@ -19,9 +20,8 @@
                         <button class="btn btn-falcon-default btn-sm ms-2" type="button">Appliquer</button>
                     </div>
                 </div>
-                <div id="orders-actions">
-                    <a class="btn btn-falcon-default btn-sm" href="{{route('utilisateurs.create')}}" type="button">
-                        <span
+                <div id="products-actions">
+                    <a class="btn btn-falcon-default btn-sm" href="{{route('produits.create')}}" role="button"><span
                             class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span
                             class="d-none d-sm-inline-block ms-1">Ajouter</span></a>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
@@ -42,25 +42,23 @@
                         <th>
                             <div class="form-check fs-0 mb-0 d-flex align-items-center">
                                 <input class="form-check-input" id="checkbox-bulk-customers-select" type="checkbox"
-                                    data-bulk-select='{"body":"table-users-body","actions":"orders-bulk-actions","replacedElement":"orders-actions"}' />
+                                    data-bulk-select='{"body":"table-products-body","actions":"products-bulk-actions","replacedElement":"products-actions"}' />
                             </div>
                         </th>
-                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Name</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="email">E-mail</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="phone">Telephone</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="admin">Admin</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="active">Active</th>
-                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="email_verified_at">
-                            E-mail verifier
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="name">Produit</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="image">Image</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="price">price</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="brand">Brand</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="stock">Stock</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="state">State</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="discount">Solde
                         </th>
-                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="created_at">
-                            Date creation
-                        </th>
+                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
                         <th class="no-sort"></th>
                     </tr>
                 </thead>
-                <tbody class="list" id="table-users-body">
-                    @foreach ($users as $user)
+                <tbody class="list" id="table-products-body">
+                    @foreach ($products as $product)
                     <tr class="btn-reveal-trigger">
                         <td class="align-middle" style="width: 28px;">
                             <div class="form-check fs-0 mb-0 d-flex align-items-center">
@@ -68,63 +66,34 @@
                                     data-bulk-select-row="data-bulk-select-row" />
                             </div>
                         </td>
-                        <td class="name py-2 align-middle white-space-nowrap">
-                            <a href="#">
-                                <div class="d-flex d-flex align-items-center">
-                                    <div class="avatar avatar-xl me-2">
-                                        @if ($user->image === null) --}}
-                                        <div class="avatar-name rounded-circle">
-                                            <span>{{substr($user->name,0,2)}}</span>
-                                        </div>
-                                        @else
-                                        <img class="rounded-circle" src={{$user->image}} alt="">
-                                        @endif
-                                    </div>
-                                    <div class="flex-1">
-                                        <h5 class="mb-0 fs--1">{{$user->name}}</h5>
-                                    </div>
-                                </div>
-                            </a>
+                        <td class="name py-2 align-middle white-space-nowrap"><a href="#">
+                                <strong>#{{$product->id}}</strong></a>
+                            <strong>{{$product->name}}</strong>
                         </td>
-                        <td class="email py-2 align-middle">{{$user->email}}</td>
-                        <td class="phone py-2 align-middle">{{$user->phone}}</td>
-                        <td class="admin py-2 align-middle white-space-nowrap">
-                            @if ($user->admin === 1)
-                            <span class="badge badge rounded-pill d-block badge-soft-success">
-                                Oui
-                            </span>
+                        <td class="image py-2 align-middle"><img src={{$product->images}} width="60px" /></td>
+                        <td class="address py-2 align-middle white-space-nowrap">{{$product->price}} MAD</td>
+                        <td class="brand py-2 align-middle white-space-nowrap">{{$product->brand}}</td>
+                        <td class="stock py-2 align-middle white-space-nowrap">{{$product->stock}}</td>
+                        <td class="state py-2 align-middle white-space-nowrap">
+                            @if ($product->state === "Neuf")
+                            <span class="badge rounded-pill badge-soft-primary">{{$product->state}}</span>
                             @else
-                            <span class="badge badge rounded-pill d-block badge-soft-danger">
-                                Non
-                            </span>
+                            <span class="badge rounded-pill badge-soft-danger">{{$product->state}}</span>
                             @endif
                         </td>
-                        <td class="active py-2 align-middle text-center">
-                            @if ($user->active === 1)
-                            <span class="badge badge rounded-pill d-block badge-soft-success">
+                        <td class="discount py-2 align-middle white-space-nowrap">-{{$product->discount}} %</td>
+                        <td class="hidden align-middle white-space-nowrap">
+                            @if ($product->hidden === 1)
+                            <span class="badge badge rounded-pill badge-soft-success">
                                 <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                 Active
                             </span>
                             @else
-                            <span class="badge badge rounded-pill d-block badge-soft-danger">
+                            <span class="badge badge rounded-pill badge-soft-secondary">
                                 <span class="me-1 fas fa-ban" data-fa-transform="shrink-2"></span>
-                                Desactive
+                                Blocked
                             </span>
                             @endif
-                        </td>
-                        <td class="email_verified_at py-2 align-middle text-center">
-                            @if ($user->email_verified_at === 1)
-                            <span class="badge badge rounded-pill badge-soft-success">
-                                <span class="me-1 fas fa-check" data-fa-transform="shrink-2"></span>Verifier
-                            </span>
-                            @else
-                            <span class="badge badge rounded-pill badge-soft-danger">
-                                <span class="me-1 fas fa-ban" data-fa-transform="shrink-2"></span>Non verifier
-                            </span>
-                            @endif
-                        </td>
-                        <td class="created_at py-2 align-middle text-center">
-                            {{date("Y-m-d H:i",strtotime($user->created_at))}}
                         </td>
                         <td class="py-2 align-middle white-space-nowrap text-end">
                             <div class="dropdown font-sans-serif position-static">
