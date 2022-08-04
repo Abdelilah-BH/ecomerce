@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div id="products-actions">
-                    <a class="btn btn-falcon-default btn-sm" href="/produits/ajouter" role="button"><span
+                    <a class="btn btn-falcon-default btn-sm" href="{{route('produits.create')}}" role="button"><span
                             class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span
                             class="d-none d-sm-inline-block ms-1">Ajouter</span></a>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"

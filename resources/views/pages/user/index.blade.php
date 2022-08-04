@@ -20,7 +20,8 @@
                     </div>
                 </div>
                 <div id="orders-actions">
-                    <a class="btn btn-falcon-default btn-sm" href="/utilisateurs/ajouter" type="button"><span
+                    <a class="btn btn-falcon-default btn-sm" href="{{route('utilisateurs.create')}}" type="button">
+                        <span
                             class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span><span
                             class="d-none d-sm-inline-block ms-1">Ajouter</span></a>
                     <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"

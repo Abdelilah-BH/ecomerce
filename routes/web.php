@@ -18,28 +18,28 @@ use App\Http\Controllers\UserController;
 
 Route::get("/login", function () {
     return view("pages/login");
-});
+})->name('login');
 
 Route::get("/", function () {
     return view("pages/home");
-});
+})->name('home.index');
 
-Route::get("/categories", [CategoriesController::class, "index"]);
+Route::get("/categories", [CategoriesController::class, "index"])->name('categories.index');
 Route::get("/categories/ajouter",  function () {
     return view("pages/category/add");
-});
-Route::post("/categories/ajouter", [CategoriesController::class, "insert"]);
+})->name('categories.create');
+Route::post("/categories/ajouter", [CategoriesController::class, "insert"])->name('categories.store');
 
 Route::get("/commandes", function () {
     return view("pages/order/index");
-});
+})->name('commandes.index');
 
-Route::get("/produits", [ProductsController::class, 'index']);
-Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct'])->name('getAddProduct');
-Route::post("/produits/ajouter", [ProductsController::class, 'insert'])->name('addProduct');
+Route::get("/produits", [ProductsController::class, 'index'])->name('produits.index');
+Route::get("/produits/ajouter", [ProductsController::class, 'getAddProduct'])->name('produits.create');
+Route::post("/produits/ajouter", [ProductsController::class, 'insert'])->name('produits.store');
 
-Route::get("/utilisateurs", [UserController::class, 'index']);
+Route::get("/utilisateurs", [UserController::class, 'index'])->name('utilisateurs.index');
 Route::get("/utilisateurs/ajouter", function () {
     return view("pages/user/ajouter");
-});
-Route::post("/utilisateurs/ajouter", [UserController::class, "insert"]);
+})->name('utilisateurs.create');
+Route::post("/utilisateurs/ajouter", [UserController::class, "insert"])->name('utilisateurs.store');
