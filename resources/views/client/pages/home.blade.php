@@ -32,20 +32,22 @@
 <section class="py-3 bg-light shadow-sm">
     <div class="container">
         <div class="row flex-center">
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="40"
-                    src="../assets/img/logos/b&amp;w/6.png" alt="" /></div>
             <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
-                    src="../assets/img/logos/b&amp;w/11.png" alt="" /></div>
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="30"
-                    src="../assets/img/logos/b&amp;w/2.png" alt="" /></div>
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="30"
-                    src="../assets/img/logos/b&amp;w/4.png" alt="" /></div>
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="35"
-                    src="../assets/img/logos/b&amp;w/1.png" alt="" /></div>
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="40"
-                    src="../assets/img/logos/b&amp;w/10.png" alt="" /></div>
-            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="40"
-                    src="../assets/img/logos/b&amp;w/12.png" alt="" /></div>
+                    src="../img/logos/apple.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/asus.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/dell.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/hp.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/lenovo.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/samsung.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="65"
+                    src="../img/logos/xiaomi.png" alt="" /></div>
+            <div class="col-3 col-sm-auto my-1 my-sm-3 px-card"><img class="landing-cta-img" height="45"
+                    src="../img/logos/canon.png" alt="" /></div>
         </div>
     </div>
     <!-- end of .container-->
