@@ -12,7 +12,7 @@
                         class="toggle-line"></span></span></button>
         </div><a class="navbar-brand" href={{route('home.index')}}>
             <div class="d-flex py-3">
-                <span class="font-sans-serif">Ecom</span>
+                <span class="font-sans-serif">Electro</span>
             </div>
         </a>
     </div>
