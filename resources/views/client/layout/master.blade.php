@@ -40,6 +40,7 @@
     <link href={{asset("assets/css/theme.min.css")}} rel="stylesheet" id="style-default">
     <link href={{asset("assets/css/user-rtl.min.css")}} rel="stylesheet" id="user-style-rtl">
     <link href={{asset("assets/css/user.min.css")}} rel="stylesheet" id="user-style-default">
+    <link href={{asset("css/app.css")}} rel="stylesheet">
     <script>
         var isRTL = JSON.parse(localStorage.getItem('isRTL'));
       if (isRTL) {
@@ -63,7 +64,7 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-        @include('client.layout.header')
+        @include('client.layout.header', ["categories" => "data"])
         @yield("content")
         @include('client.layout.footer')
 
