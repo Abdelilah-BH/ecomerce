@@ -10,7 +10,7 @@
         <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
             <div class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start"><a
                     class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill" href="#!"><span class="me-2"
-                        role="img" aria-label="Gift">🎁</span>Hello</a>
+                        role="img" aria-label="Gift"> 🎁</span>Hello</a>
                 <h1 class="text-white fw-light">Bring <span class="typed-text fw-bold"
                         data-typed-text='["design","beauty","elegance","perfection"]'></span><br />to your
                     webapp</h1>
