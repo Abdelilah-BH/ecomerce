@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('like');
             $table->integer('dislike');
+            $table->longText('message');
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');

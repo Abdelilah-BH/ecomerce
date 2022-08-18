@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("id_delivery");
+            $table->foreign("id_delivery")->references("id")->on("deliveries")->onDelete("cascade");
+            $table->unsignedBigInteger("id_user");
+            $table->foreign("id_user")->references("id")->on("users")->onDelete("cascade");
             $table->string('tracking');
             $table->double('price');
             $table->enum('status', ['livre', 'en cours', 'annuler']);
