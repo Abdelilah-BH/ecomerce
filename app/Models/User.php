@@ -25,6 +25,21 @@ class User extends Authenticatable
         'active',
     ];
 
+    public function deliveries()
+    {
+        return $this->hasOne(Deliveries::class);
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

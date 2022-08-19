@@ -15,4 +15,14 @@ class Categories extends Model
         'order',
         'status'
     ];
+
+    /**
+     * Get all of the comments for the Categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function products()
+    {
+        return $this->hasMany(Products::class);
+    }
 }

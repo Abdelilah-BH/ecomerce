@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer("discount")->nullable();
             $table->string("brand");
             $table->string("tag");
+            $table->string("slug");
             $table->integer("stock");
             $table->string("model");
             $table->integer("storage");
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->enum("status", ["Neuf", "Occasion"])->default("Neuf");
             $table->enum("type_disque_dur", ["SSD", "HDD"])->default("HDD");
             $table->string("images");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
