@@ -51,4 +51,25 @@ class Products extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+
+    /**
+     * The roles that belong to the Products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany(Orders::class, 'product_orders', 'id_product', 'id_order');
+    }
+
+    /**
+     * The roles that belong to the Products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class, 'product_carts', 'id_product', 'id_cart');
+    }
 }

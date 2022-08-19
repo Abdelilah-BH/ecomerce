@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('product_orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("id_user");
-            $table->foreign("id_user")->references("id")->on("users")->onDelete("cascade");
+            $table->unsignedBigInteger("id_order");
+            $table->foreign("id_order")->references("id")->on("orders")->onDelete("cascade");
             $table->unsignedBigInteger("id_product");
             $table->foreign("id_product")->references("id")->on("products")->onDelete("cascade");
             $table->integer("quantity");

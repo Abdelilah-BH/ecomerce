@@ -16,4 +16,14 @@ class Orders extends Model
         "date_delivery"
     ];
     use HasFactory;
+
+    /**
+     * The roles that belong to the Orders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Products::class, 'product_orders', 'id_order', 'id_product');
+    }
 }
